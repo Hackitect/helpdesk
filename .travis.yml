@@ -1,0 +1,48 @@
+language: android
+#script: "./gradlew build"
+android:
+  components:
+    - tools
+    - build-tools-24.0.3
+    - android-25
+#    - extra-android-support # because I'm use support library
+    - extra-android-m2repository
+#    - extra-google-google_play_services
+#    - extra-google-m2repository
+
+sudo: required
+
+jdk:
+  - oraclejdk8
+
+install: true
+
+script:
+  - sudo apt-get update && sudo apt-get install oracle-java8-installer
+  - java -version
+  
+#before_script:
+  #- chmod +x gradlew
+#before_install:
+        #- chmod +x gradlew
+branches:
+        only:
+                - master
+#script:
+ #- ./gradlew build
+#  - ./gradlew assembleDebug --stacktrace
+    
+
+    # Specify at least one system image,
+    # if you need to run emulator(s) during your tests
+    #- sys-img-armeabi-v7a-android-22
+    #- sys-img-x86-android-22
+
+    # Emulator Management: Create, Start and Wait
+#    before_script:
+#    - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
+#    - emulator -avd test -no-skin -no-audio -no-window &
+#    - curl http://is.gd/android_wait_for_emulator > android-wait-for-emulator
+#    - chmod u+x android-wait-for-emulator
+#    - ./android-wait-for-emulator
+#    - adb shell input keyevent 82 &
